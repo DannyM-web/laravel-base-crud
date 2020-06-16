@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin headFoot{
+  font-size: 30px;
+  text-align:center;
+  color: #fff;
+  font-weight: bold;
+}
+
+footer{
+  height: 10vh;
+  background: red;
+  .container{
+    @include headFoot;
+  }
+}
+
+header{
+  height: 10vh;
+  background: red;
+  .container{
+    @include headFoot;
+  }
+}
+
+main{
+  height: 80vh;
+  .container{
+    font-size: 25px;
+    margin-left: 30px;
+    ul{
+      list-style-position: inside;
+    }
+  }
+}

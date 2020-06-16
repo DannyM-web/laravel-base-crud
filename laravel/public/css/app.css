@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+footer {
+  height: 10vh;
+  background: red;
+}
+
+footer .container {
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+header {
+  height: 10vh;
+  background: red;
+}
+
+header .container {
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+main {
+  height: 80vh;
+}
+
+main .container {
+  font-size: 25px;
+  margin-left: 30px;
+}
+
+main .container ul {
+  list-style-position: inside;
+}
+

@@ -6,32 +6,32 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCagnoliniTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('cagnolini', function (Blueprint $table) {
-            $table->id();
-            
-            $table->string('nome');
-            $table->string('tipo');
-            $table->smallInteger('peso_kg');
-            $table->smallInteger('altezza_cm');
+  /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+  public function up()
+  {
+    Schema::create('cagnolini', function (Blueprint $table) {
+      $table->id();
 
-            $table->timestamps();
-        });
-    }
+      $table->string('nome');
+      $table->string('tipo');
+      $table->smallInteger('peso_kg');
+      $table->smallInteger('altezza_cm');
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('cagnolini');
-    }
+      $table->timestamps();
+    });
+  }
+
+  /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+  public function down()
+  {
+    Schema::dropIfExists('cagnolini');
+  }
 }

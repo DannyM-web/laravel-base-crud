@@ -1,3 +1,12 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 *{
   margin: 0;
   padding: 0;
@@ -6,10 +15,10 @@
 
 header,
 footer{
-  height: 10vh;
+  height: 100px;
   background-color: purple;
   color: #fff;
-  & > .container{
+  & > .containerc{
     display: flex;
     justify-content: center;
     font-size: 30px;
@@ -18,25 +27,26 @@ footer{
 }
 
 main{
-  height: 80vh;
-  background-color: grey;
-  .container{
+  height: calc(100% - 200px);
+  background-color:#fff;
+  .containerc{
     width: 100%;
     height: 100%;
-    .bar{
-      font-size: 30px;
-      width: 100%;
-      height: 100px;
-      background: #fff;
-      border: 3px solid red;
-      background: lightblue;
-      display: flex;
-      justify-content: space-around;
-    }
+
     .content{
       width: 100%;
       height:100%;
       border: 2px solid black;
+      .bar{
+        font-size: 30px;
+        width: 100%;
+        height: 100px;
+        background: #fff;
+        border: 3px solid red;
+        background: lightblue;
+        display: flex;
+        justify-content: space-around;
+      }
       .creation{
         text-align: center;
         form{
@@ -66,24 +76,36 @@ main{
         width: 90%;
         margin: auto;
         height: calc(100% - 100px);
-        h2{
-          font-size: 40px;
-          text-align: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        .title{
+          height: 10%;
+          h2{
+            font-size: 40px;
+            text-align: center;
+          }
         }
-        ul{
-          width: 100%;
-          height: 80%;
-          line-height: 45px;
-          color: #fff;
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          font-size: 30px;
+        .test{
+          max-height: 70%;
+          padding-top: 50px;
+          ul{
+            width: 100%;
+            height: 80%;
+            line-height: 45px;
+            color: #black;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            font-size: 23px;
+          }
         }
         .buttons{
+          max-height:30%;
          a{
            background: lightblue;
-           padding: 20px;
+           padding: 5px;
            border: 2px solid red;
            font-size: 25px;
            margin-right: 15px;

@@ -32,44 +32,67 @@ class OminiController extends Controller
     // ATTUO LA CREAZIONE
     public function store(Request $request){
 
-      $data = $request -> all();
-
       $omino = new Omino;
+      // $data = $request -> all();
 
-      $omino -> first_name = $data['first_name'];
-      $omino -> last_name = $data['last_name'];
-      $omino -> address = $data['address'];
-      $omino -> code = $data['code'];
-      $omino -> state = $data['state'];
-      $omino -> phone_number = $data['phone_number'];
-      $omino -> role = $data['role'];
+      $validatedData = $request->validate([
+        'first_name'   => 'required|alpha',
+        'last_name'    => 'required|alpha',
+        'address'      => 'required',
+        'code'         => 'required',
+        'state'        => 'required|',
+        'phone_number' => 'required',
+        'role'         => 'required|nullable'
+      ]);
+
+      $omino -> first_name =  $validatedData['first_name'];
+      $omino -> last_name =   $validatedData['last_name'];
+      $omino -> address =     $validatedData['address'];
+      $omino -> code =        $validatedData['code'];
+      $omino -> state =       $validatedData['state'];
+      $omino -> phone_number = $validatedData['phone_number'];
+      $omino -> role =        $validatedData['role'];
 
       $omino -> save();
 
-      return redirect() -> route('home');
+      return redirect() -> route('home')
+                          ->withSuccess($omino['first_name'] . ' created successfully!');
+
     }
 
+    // ROTTA CHE PORTA ALLA PAGINA PER LA MODIFICA
     public function edit($id){
       $omino = Omino::findOrFail($id);
 
       return view('editPerson', compact('omino'));
     }
 
+    // FUNZIONE CHE ATTUA LE MODIFICHE PASSATE DAL FORM
     public function update(Request $request, $id){
       $omino = Omino::findOrFail($id);
-      $data = $request -> all();
+      // $data = $request -> all();
+      $validatedData = $request->validate([
+        'first_name'   => 'required|alpha',
+        'last_name'    => 'required|alpha',
+        'address'      => 'required',
+        'code'         => 'required',
+        'state'        => 'required|',
+        'phone_number' => 'required',
+        'role'         => 'required|nullable'
+    ]);
 
-      $omino -> first_name = $data['first_name'];
-      $omino -> last_name = $data['last_name'];
-      $omino -> address = $data['address'];
-      $omino -> code = $data['code'];
-      $omino -> state = $data['state'];
-      $omino -> phone_number = $data['phone_number'];
-      $omino -> role = $data['role'];
+      $omino -> first_name =  $validatedData['first_name'];
+      $omino -> last_name =   $validatedData['last_name'];
+      $omino -> address =     $validatedData['address'];
+      $omino -> code =        $validatedData['code'];
+      $omino -> state =       $validatedData['state'];
+      $omino -> phone_number = $validatedData['phone_number'];
+      $omino -> role =        $validatedData['role'];
 
       $omino -> save();
 
-      return redirect() -> route('home');
+      return redirect() -> route('show', $id)
+                          ->withSuccess($omino['first_name'] . ' updated successfully!');
     }
 
 

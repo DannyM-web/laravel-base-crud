@@ -7,7 +7,18 @@
     </div>
 
     <div class="creation">
-      <h2>Stai modificando i dettagli di {{$omino['first_name']}} {{$omino['last_name']}} </h2>
+        <h2>Stai modificando i dettagli di {{$omino['first_name']}} {{$omino['last_name']}} </h2>
+
+      @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+
       <form action="{{route('update', $omino['id'])}}" method="post">
         @csrf
         @method('POST')
